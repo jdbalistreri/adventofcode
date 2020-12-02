@@ -1,9 +1,4 @@
-import os
-
-def read_input(filename):
-    with open(os.getcwd() + filename, "r") as f:
-        content = f.readlines()
-    return [x.strip() for x in content]
+from shared.io import *
 
 SUM_TARGET = 2020
 
@@ -23,7 +18,7 @@ def get_three_entries(values_set):
     return None, None, None, None
 
 def main():
-    values = set([int(x) for x in  read_input("/input/01.txt")])
+    values = set([int(x) for x in  read_input("/y2020/input/01.txt")])
     print(get_two_entries(values))
     print(get_three_entries(values))
 
