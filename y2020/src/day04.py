@@ -4,21 +4,6 @@ from shared.io import *
 
 INPUT_FILE = "/y2020/input/04.txt"
 
-def clean_values(values):
-    curr_passport = ""
-    passports = []
-    for value in values:
-        if value == "":
-            passports.append(curr_passport.strip())
-            curr_passport = ""
-        else:
-            curr_passport += " " + value
-
-    if curr_passport != "":
-        passports.append(curr_passport.strip())
-
-    return passports
-
 KEYS_WE_WANT = set(["byr", "ecl", "eyr", "hcl", "hgt", "iyr", "pid"])
 
 def is_valid_year(year, start, end):
@@ -70,7 +55,7 @@ def is_valid(passport):
 
 def main():
     values = read_input(INPUT_FILE)
-    passports = clean_values(values)
+    passports = get_groups(values, sep=" ")
     count = 0
     invalids = []
     for passport in passports:
