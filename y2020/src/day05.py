@@ -1,5 +1,3 @@
-import re
-
 from shared.io import *
 
 INPUT_FILE = "/y2020/input/05.txt"
